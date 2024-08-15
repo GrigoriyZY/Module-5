@@ -3,11 +3,9 @@
 class House:
     houses_history = []
 
-    def __new__(cls, *args, **kwargs):        # Уточнен метод создания объекта класса. 
-        cls.args = args
-        cls.kwargs = kwargs
-        instance = super().__new__(cls)
-        House.houses_history.append(args[0])
+    def __new__(cls, *args, **kwargs):        # Доработан метод метод создания объекта класса в соответствии с рекоммндацией. 
+        instance = super(House, cls).__new__(cls)
+        cls.houses_history.append(args[0])
         return instance
 
     def __init__(self, name, number_of_floors):
