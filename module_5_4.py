@@ -3,7 +3,7 @@
 class House:
     houses_history = []
 
-    def __new__(cls, *args, **kwargs):
+    def __new__(cls, *args, **kwargs):        # Уточнен метод создания объекта класса. 
         cls.args = args
         cls.kwargs = kwargs
         instance = super().__new__(cls)
@@ -20,7 +20,7 @@ class House:
     def __len__(self):
         return self.number_of_floors
 
-    def __del__(self):
+    def __del__(self):                    # Переопределен метод удаления объекта класса.
         return print(f'{self.name} снесён, но он останется в истории.')
 
     # Методы сравнения количества этажей.
