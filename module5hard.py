@@ -47,7 +47,6 @@ class UrTube:
 
     def register(self, nickname, password, age):            # Метод для регистрации пользователей
         if nickname in self.users:
-            print(True)
             if hash(password) == self.users[nickname]:
                 self.current_user = User(nickname, password, age)
             else:
