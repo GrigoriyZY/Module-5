@@ -58,6 +58,7 @@ class UrTube:
         for i in range(len(self.users)):
             if nickname is str(self.users[i]):
                 print(f'Пользователь {nickname} уже существует.')
+                self.log_in(nickname, password)
                 return
         self.current_user = User(nickname, password, age)
         self.users.append(self.current_user)
