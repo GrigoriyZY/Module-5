@@ -55,12 +55,12 @@ class UrTube:
         self.current_adult = False
 
     def register(self, nickname, password, age):            # Метод для регистрации пользователей
-        if nickname not in self.users:
-            self.current_user = User(nickname, password, age)
-            self.users.append(self.current_user)
-        else:
-            print(f'Пользователь {nickname} уже существует.')
-            self.log_in(nickname, password)
+        for i in range(len(self.users)):
+            if nickname is str(self.users[i]):
+                print(f'Пользователь {nickname} уже существует.')
+                return
+        self.current_user = User(nickname, password, age)
+        self.users.append(self.current_user)
 
     def log_in(self, nickname, password):                   # Метод для входа пользователей
         if hash(password) == User.users_pass[nickname]:
